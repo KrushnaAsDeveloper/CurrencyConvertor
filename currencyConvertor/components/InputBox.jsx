@@ -12,7 +12,7 @@ function InputBox({
 
 }) {
   return (
-      <div className='bg-[#d3d3d3]  w-120  flex justify-between p-5 rounded-2xl shadow-[#00000047] shadow-lg my-2'>
+      <div className='bg-[#d3d3d3]  md:w-120 w-[80vw]  flex justify-between p-5 rounded-2xl shadow-[#00000047] shadow-lg my-2'>
         <div className="flex flex-col w-1/2">
 
       <label className='font-bold text-xl text-black mb-4'  htmlFor="">{lable}</label>

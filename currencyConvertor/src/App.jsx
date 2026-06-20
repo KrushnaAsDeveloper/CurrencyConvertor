@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import allCurrecnyInfo from "../hooks/useCurrencyInfo"
 import InputBox from '../components/InputBox'
 function App() {
-  const[amount, setAmount] = useState(0)
+  const[amount, setAmount] = useState()
   const[from, setFrom] = useState("usd")
   const[to, setTo] = useState("inr")
   const[convertedAm, setConvertedAm] = useState(0)
@@ -24,9 +24,9 @@ function App() {
   }
   return (
     <>
-      
-    <div className='flex justify-center items-center h-screen bg-[url("https://img.magnific.com/free-vector/shiny-indian-rupee-digital-currency-background-with-circuit-lines_1017-41186.jpg?uid=R192351663&ga=GA1.1.546384849.1781920855&semt=ais_test_c&w=740&q=80")] bg-center bg-cover  flex-col w-[100vw] '>
-  <form className='relative flex flex-col justify-center items-center  p-5 bg-[#ffffff81] rounded-2xl backdrop-blur-sm' onSubmit={(e)=> {e.preventDefault(), convert()}}>
+    <div className='flex justify-center items-center bg-[url("https://images.unsplash.com/photo-1605792657660-596af9009e82?q=80&w=1102&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")]  bg-cover bg-center bg-no-repeat min-h-screen w-full   flex-col  '>
+      <h1 className='mb-10 text-4xl font-bold text-white'>Currency Convertor </h1>
+  <form className='relative flex flex-col justify-center items-center md:w-auto w-[90vw] p-5 bg-[#ffffff81] rounded-2xl backdrop-blur-sm' onSubmit={(e)=> {e.preventDefault(), convert()}}>
       <InputBox
       lable={from}
       amount={amount}
