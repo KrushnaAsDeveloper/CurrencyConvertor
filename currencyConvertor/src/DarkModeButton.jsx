@@ -1,30 +1,29 @@
 import React , {useEffect, useState}from 'react'
-import { ThemeContextProvider } from '../Context/Theme';
+import {ThemeContextProvider} from "../Context/Theme"
 function DarkModeButton() {
     const [themeMode, setThemeMode] = useState("light");
-  
+  function lightMode() {
+    setThemeMode("light")
+  }
+  function darkMode() {
+    setThemeMode("dark")
+  }
+
+  function changeThemeValue(e){
+    const checkboxStatus = e.currentTarget.checked;
+    if(checkboxStatus){
+      darkMode()
+    }
+    else{
+      lightMode()
+    }
+  }
   useEffect(()=>{
     
     document.querySelector("html").classList.remove("light");
     document.querySelector("html").classList.remove("dark");
     document.querySelector("html").classList.add(themeMode);
   }, [themeMode])
-  const lightMode = () =>{
-      setThemeMode("light")
-    }
-    const darkMode = () =>{
-      setThemeMode("dark")
-    }
-  
-    const changeThemeValue = (e) =>{
-      const checkedStatus = e.currentTarget.checked;
-      if(checkedStatus){
-        darkMode()
-      }
-      else{
-        lightMode()
-      }
-    }
   return (
     <ThemeContextProvider value={{ themeMode, lightMode, darkMode }}>
 
