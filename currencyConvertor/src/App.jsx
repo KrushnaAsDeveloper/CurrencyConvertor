@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import allCurrecnyInfo from "../hooks/useCurrencyInfo";
 import InputBox from "../components/InputBox";
 import { ThemeContextProvider } from "../Context/Theme";
 import { themeContext } from "../Context/Theme";
+import "./index.css"
+import DarkModeButton from "./DarkModeButton";
 function App() {
   const [amount, setAmount] = useState();
   const [from, setFrom] = useState("usd");
   const [to, setTo] = useState("inr");
   const [convertedAm, setConvertedAm] = useState(0);
-  const [themeMode, setThemeMode] = useState("light");
   
   let allCurrency = allCurrecnyInfo(from);
 
@@ -26,32 +27,18 @@ function App() {
   };
   // using the context fn as function here with same name so that it will provide the same functionality to the function in the context
 
-  const lightMode = () =>{
-    setThemeMode("light")
-  }
-  const darkMode = () =>{
-    setThemeMode("dark")
-  }
-
-  const themeConvertor = (e) =>{
-    document.querySelector("html").classList.remove("light");
-    document.querySelector("html").classList.remove("dark");
-    document.querySelector("html").classList.add(themeMode);
-
-    
-
-  }
+  
 
   return (
     <>
-      <ThemeContextProvider value={{ themeMode, lightMode, darkMode }}>
-        <div className='flex justify-center items-center bg-[url("https://images.unsplash.com/photo-1605792657660-596af9009e82?q=80&w=1102&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")]  bg-cover bg-center bg-no-repeat min-h-screen w-full   flex-col  '>
-        <input type="checkbox" onChange={()=> themeConvertor} />
-          <h1 className="mb-10 text-4xl font-bold text-white">
-            Currency Convertor{" "}
-          </h1>
+      
+        <div className='flex justify-center items-center bg-white dark:bg-black bg-cover bg-center bg-no-repeat min-h-screen w-full   flex-col  '>
+        <DarkModeButton/>
+          <h1 className="text-black mb-10 text-4xl font-bold dark:text-white">
+            Currency Convertor
+          </h1> 
           <form
-            className="relative flex flex-col justify-center items-center md:w-auto w-[90vw] p-5 bg-[#ffffff81] rounded-2xl backdrop-blur-sm"
+            className="relative flex flex-col justify-center items-center md:w-auto w-[90vw] p-5 dark:bg-[#ffffff81] rounded-2xl bg-[#3b3b3b81] backdrop-blur-sm"
             onSubmit={(e) => {
               (e.preventDefault(), convert());
             }}
@@ -79,6 +66,7 @@ function App() {
               onAmountChange={(convertedAm) => setConvertedAm(convertedAm)}
               onCurrencyChange={(to) => setTo(to)}
               isDisable
+              
             />
             <button
               type="submit"
@@ -86,7 +74,6 @@ function App() {
             >{`Covert ${from} to ${to}`}</button>
           </form>
         </div>
-      </ThemeContextProvider>
     </>
   );
 }
