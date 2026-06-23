@@ -34,8 +34,8 @@ function App() {
           <DarkModeButton />
         </div>
         {/* live status */}
-        <div className="inline-flex items-center justify-center gap-3 bg-[#FEF3C7] border border-[#FAEABF] transition-colors duration-150 px-5 py-1.5 rounded-full cursor-pointer dark:bg-[#252423] ">
-          <span className="text-sm tracking-widest font-bold  text-orange-400 uppercase dark:text-yellow-400">
+        <div className="inline-flex items-center justify-center gap-3 mb-5 bg-[#FEF3C7] border border-[#FAEABF] transition-colors duration-150 px-5 py-1.5 rounded-full cursor-pointer dark:bg-[#252423] ">
+          <span className="text-sm tracking-widest font-bold  text-orange-400 uppercase dark:text-yellow-400">  
             Live Rates
           </span>
           <span className="relative flex size-2">

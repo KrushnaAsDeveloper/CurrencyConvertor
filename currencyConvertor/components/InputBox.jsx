@@ -10,7 +10,7 @@ function InputBox({
   isDisable= false,
   placeholder= ""
   
-
+  
 }) {
   return (
       <div className='dark:bg-[#d3d3d3] bg-[#cbcbcb8e]   md:w-120 w-[80vw]  flex justify-between p-5 rounded-2xl border border-gray-300 my-2'>

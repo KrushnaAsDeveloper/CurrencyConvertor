@@ -1,37 +1,51 @@
-import React , {useEffect, useState}from 'react'
-import {ThemeContextProvider} from "../Context/Theme"
+import React, { useEffect, useState } from "react";
+import { ThemeContextProvider } from "../Context/Theme";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 function DarkModeButton() {
-    const [themeMode, setThemeMode] = useState("light");
-        const [on, setOn] = useState(false)
+  const [themeMode, setThemeMode] = useState("light");
 
   function lightMode() {
-    setThemeMode("light")
+    setThemeMode("light");
   }
   function darkMode() {
-    setThemeMode("dark")
+    setThemeMode("dark");
   }
 
-  function changeThemeValue(e){
-    const checkboxStatus = e.currentTarget.checked; 
+  function changeThemeValue(e) {
 
-    if(checkboxStatus){
-      darkMode()
+    if(themeMode == 'light'){
+      setThemeMode("dark")
     }
     else{
-      lightMode()
+      setThemeMode("light")
+      
     }
   }
-  useEffect(()=>{
-    
+  useEffect(() => {
     document.querySelector("html").classList.remove("light");
     document.querySelector("html").classList.remove("dark");
     document.querySelector("html").classList.add(themeMode);
-  }, [themeMode])
+  }, [themeMode]);
   return (
     <ThemeContextProvider value={{ themeMode, lightMode, darkMode }}>
-        <input type="checkbox" checked = {themeMode == "dark"} onChange={changeThemeValue} className='appearance-none  border w-10 h-10 cursor-pointer bg-black'/>
+      <div className="">
+        
+        <button className="border cursor-pointer flex justify-center items-center rounded-full w-10 h-10" style={{backgroundColor : themeMode == "light" ? "#11182A" : "white" }} onClick={changeThemeValue}> {themeMode === "light" ? (
+          <FontAwesomeIcon className="text-2xl text-white" icon={faMoon} />
+        ) : (
+          <FontAwesomeIcon className="text-black text-2xl" icon={faSun} />
+        )}</button>
+        {/* <input
+        
+          type="checkbox"
+          checked={themeMode == "dark"}
+          onChange={changeThemeValue}
+          className="appearance-none  border w-10 h-10 cursor-pointer "
+        /> */}
+      </div>
     </ThemeContextProvider>
-  )
+  );
 }
 
-export default DarkModeButton
+export default DarkModeButton;
