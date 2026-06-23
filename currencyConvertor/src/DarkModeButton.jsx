@@ -2,6 +2,8 @@ import React , {useEffect, useState}from 'react'
 import {ThemeContextProvider} from "../Context/Theme"
 function DarkModeButton() {
     const [themeMode, setThemeMode] = useState("light");
+        const [on, setOn] = useState(false)
+
   function lightMode() {
     setThemeMode("light")
   }
@@ -10,7 +12,8 @@ function DarkModeButton() {
   }
 
   function changeThemeValue(e){
-    const checkboxStatus = e.currentTarget.checked;
+    const checkboxStatus = e.currentTarget.checked; 
+
     if(checkboxStatus){
       darkMode()
     }
@@ -26,9 +29,7 @@ function DarkModeButton() {
   }, [themeMode])
   return (
     <ThemeContextProvider value={{ themeMode, lightMode, darkMode }}>
-
-
-        <input type="checkbox" checked = {themeMode == "dark"} onChange={changeThemeValue} />
+        <input type="checkbox" checked = {themeMode == "dark"} onChange={changeThemeValue} className='appearance-none  border w-10 h-10 cursor-pointer bg-black'/>
     </ThemeContextProvider>
   )
 }
