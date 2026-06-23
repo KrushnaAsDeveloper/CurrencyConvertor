@@ -31,18 +31,11 @@ function DarkModeButton() {
     <ThemeContextProvider value={{ themeMode, lightMode, darkMode }}>
       <div className="">
         
-        <button className="border cursor-pointer flex justify-center items-center rounded-full w-10 h-10" style={{backgroundColor : themeMode == "light" ? "#11182A" : "white" }} onClick={changeThemeValue}> {themeMode === "light" ? (
+        <button className="border cursor-pointer flex justify-center items-center rounded-full w-10 h-10" style={{backgroundColor : themeMode == "light" ? "#11182A" : "#F8F1D0" }} onClick={changeThemeValue}> {themeMode === "light" ? (
           <FontAwesomeIcon className="text-2xl text-white" icon={faMoon} />
         ) : (
           <FontAwesomeIcon className="text-black text-2xl" icon={faSun} />
         )}</button>
-        {/* <input
-        
-          type="checkbox"
-          checked={themeMode == "dark"}
-          onChange={changeThemeValue}
-          className="appearance-none  border w-10 h-10 cursor-pointer "
-        /> */}
       </div>
     </ThemeContextProvider>
   );
