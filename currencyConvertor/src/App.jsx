@@ -49,7 +49,7 @@ function App() {
           <span className="text-black dark:text-white">Currency</span> <span className="text-[#e0ac27] dark:text-[#F9BD24]">Convertor</span>
         </h1>
         <form
-          className="relative flex flex-col justify-center items-center md:w-auto w-[90vw] p-5  rounded-2xl  backdrop-blur-sm bg-[#f3df8f] shadow shadow-2xl dark:bg-[#11182A]"
+          className="relative flex flex-col justify-center items-center md:w-auto w-[90vw] p-5  rounded-2xl  backdrop-blur-sm bg-[#f3df8f] shadow shadow-2xl dark:bg-[#11182A] dark:shadow-2xl dark:shadow-[#3c3f2d]"
           onSubmit={(e) => {
             (e.preventDefault(), convert());
           }}
