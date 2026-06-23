@@ -31,7 +31,7 @@ function App() {
 
   return (
     <>
-      <div className="font-[ubuntu] flex justify-center items-center  bg-[#f8f1d0] dark:bg-[#0a0f1e] bg-cover bg-center bg-no-repeat min-h-screen w-full   flex-col  ">
+      <div className="font-[ubuntu] transition-colors duration-150 flex justify-center items-center   bg-[#f8f1d0] dark:bg-[#0a0f1e] min-h-screen w-full   flex-col  ">
         <div className="fixed right-5 top-5">
           <DarkModeButton />
         </div>
@@ -46,10 +46,10 @@ function App() {
           </span>
         </div>
         <h1 className="text-black mb-10 text-4xl font-bold dark:text-white">
-          <span className="text-black dark:text-white">Currency</span> <span className="text-[#e0ac27] dark:text-[#F9BD24]">Convertor</span>
+          <span className="text-black dark:text-white transition-colors duration-150">Currency</span> <span className="text-[#e0ac27] transition-colors duration-150 dark:text-[#F9BD24]">Convertor</span>
         </h1>
         <form
-          className="relative flex flex-col justify-center items-center md:w-auto w-[90vw] p-5  rounded-2xl  backdrop-blur-sm bg-[#f3df8f] shadow shadow-2xl dark:bg-[#11182A] dark:shadow-2xl dark:shadow-[#3c3f2d]"
+          className="relative transition-colors duration-150 flex flex-col justify-center items-center md:w-auto w-[90vw] p-10  rounded-4xl  backdrop-blur-sm bg-[#f3df8f] border border-amber-500   dark:bg-[#11182A] dark:shadow-2xl dark:border dark:border-[#6e7355]"
           onSubmit={(e) => {
             (e.preventDefault(), convert());
           }}

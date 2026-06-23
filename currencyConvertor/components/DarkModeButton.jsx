@@ -29,7 +29,7 @@ function DarkModeButton() {
   }, [themeMode]);
   return (
     <ThemeContextProvider value={{ themeMode, lightMode, darkMode }}>
-      <div className="">
+      <div className="transition-colors duration-150">
         
         <button className="border cursor-pointer flex justify-center items-center rounded-full w-10 h-10" style={{backgroundColor : themeMode == "light" ? "#11182A" : "#F8F1D0" }} onClick={changeThemeValue}> {themeMode === "light" ? (
           <FontAwesomeIcon className="text-2xl text-white" icon={faMoon} />
