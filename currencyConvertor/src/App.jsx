@@ -4,7 +4,9 @@ import InputBox from "../components/InputBox";
 import { ThemeContextProvider } from "../Context/Theme";
 import { themeContext } from "../Context/Theme";
 import "./index.css";
-import DarkModeButton from "./DarkModeButton";
+import DarkModeButton from "../components/DarkModeButton";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faExchange} from "@fortawesome/free-solid-svg-icons"
 function App() {
   const [amount, setAmount] = useState();
   const [from, setFrom] = useState("usd");
@@ -29,7 +31,7 @@ function App() {
 
   return (
     <>
-      <div className="font-[ubuntu] flex justify-center items-center bg-[#f8f1d0] dark:bg-[#0a0f1e] bg-cover bg-center bg-no-repeat min-h-screen w-full   flex-col  ">
+      <div className="font-[ubuntu] flex justify-center items-center  bg-[#f8f1d0] dark:bg-[#0a0f1e] bg-cover bg-center bg-no-repeat min-h-screen w-full   flex-col  ">
         <div className="fixed right-5 top-5">
           <DarkModeButton />
         </div>
@@ -64,13 +66,13 @@ function App() {
             textColor="text-gray-600 dark:text-gray-400"
             selectBgColor="bg-[#fceba9] text-orange-500 dark:bg-[#252323]"
           />
-          <button
+          <div className="my-3"><button
             onClick={swap}
             type="button"
-            className="cursor-pointer text-white bg-[#111] px-3 py-2 text-2xl absolute top-[36%] rounded-2xl"
+            className="cursor-pointer text-white dark:text-[#222]   px-3 py-2 text-3xl bg-amber-400 dark:bg-neutral-400 rounded-full"
           >
-            swap
-          </button>
+            <FontAwesomeIcon className="rotate-90 hover:rotate-y-180 transition-all duration-75" icon={faExchange} />
+          </button></div>
            <div className="text-neutral-400 uppercase text-sm font-bold relative md:w-120 w-[80vw]  mb-5 "><span className="absolute left-0 ">You receive</span></div>
           <InputBox
             lable={to}
@@ -84,6 +86,7 @@ function App() {
             textColor="text-green-600"
             selectBgColor="text-blue-600 bg-[#aaa8fa] dark:bg-[#202746]"
           />
+          <div className="text-neutral-500 my02">1 {from} = {1 * allCurrency[to]} {to}</div>
           <button
             type="submit"
             className={`text-[1.2rem] font-bold cursor-pointer bg-orange-400 rounded-xl px-3 py-2 mt-5 text-black dark:text-white  md:w-[25vw] w-[60vw]`}

@@ -18,7 +18,7 @@ function InputBox({
       <div className='bg-[#e1d4b3]   md:w-120 w-[80vw]  flex justify-between p-5 rounded-2xl   my-2 dark:bg-[#293043]'>
         <div className="flex flex-col">
 
-      <select value={currency} className={` appearance-none  px-2 rounded-xl py-2 text-center text-2xl uppercase outline-none  } onChange={(e)=>onCurrencyChange && onCurrencyChange(e.target.value) ${selectBgColor} `} >
+      <select value={currency}  className={`appearance-none  px-2 rounded-xl py-2 text-center text-2xl uppercase outline-none ${selectBgColor} `} onChange={(e)=>onCurrencyChange && onCurrencyChange(e.target.value)} >
         {
           currencyOptions.map((currency)=>(
             <option key={currency} value={currency}>{currency}</option>
