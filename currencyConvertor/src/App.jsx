@@ -18,8 +18,6 @@ function App() {
   let allOptions = Object.keys(allCurrency);
 
   let swap = () => {
-    setFrom(to);
-    setTo(from);
     setConvertedAm(amount);
     setAmount(convertedAm);
   };
